@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitKit</title>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>FitKit</h1>
+    <p>
+      FitKit provides comfortable, functional hospital clothing and accessories designed to support healthcare professionals in their daily work.
+      Clean design, durable materials, and all-day comfort built for care in motion.
+    </p>
+  </header>
+
+  <!-- Services Section -->
+  <section>
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Modern essentials made for healthcare professionals on the front lines</p>
+    </div>
+
+    <div class="services">
+      <div class="service-card">
+        <h3>Hospital Apparel Sales</h3>
+        <p>
+          Offering high-quality scrubs, lab coats, and medical uniforms, 
+          with practical items like caps, shoes, badges, and protective gear.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Limited Edition or Trendy Collections</h3>
+        <p>
+          Stylish options while maintaining professional standards.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Custom Branding</h3>
+        <p>
+          Personalizing uniforms with hospital logos or staff names.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+    <section>
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>We'll help you find the perfect hospital apparel and accessories.</p>
+    </div>
+
+    <form class="contact-form" action="{% url 'landing_page' %}" method="POST">
+        {% csrf_token %}
+        <label for="name">Name<span class="asterisk">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email<span class="asterisk">*</span></label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+
+        <label for="message">Message<span class="asterisk">*</span></label>
+        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+    </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Made by Ignatius Warren Benjamin Javelona.
+  </footer>
+
+</body>
+</html>
