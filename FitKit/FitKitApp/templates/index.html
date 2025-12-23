@@ -1,81 +1,199 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FitKit</title>
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitKit</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>FitKit</h1>
-    <p>
-      FitKit provides comfortable, functional hospital clothing and accessories designed to support healthcare professionals in their daily work.
-      Clean design, durable materials, and all-day comfort built for care in motion.
-    </p>
-  </header>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo"><a href="#hero">FitKit</a></div>
 
-  <!-- Services Section -->
-  <section>
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Modern essentials made for healthcare professionals on the front lines</p>
-    </div>
-
-    <div class="services">
-      <div class="service-card">
-        <h3>Hospital Apparel Sales</h3>
+        <ul class="nav-links">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="hero-split" id="hero">
+      <div class="hero-text">
+        <h1><span id="hero-text-title">FitKit</span></h1>
         <p>
-          Offering high-quality scrubs, lab coats, and medical uniforms, 
-          with practical items like caps, shoes, badges, and protective gear.
+          FitKit provides comfortable, functional hospital clothing and accessories designed to support healthcare professionals in their daily work.
+          Clean design, durable materials, and all-day comfort built for care in motion.
         </p>
+        <img src="{% static 'images/PSA-Awards-DEC23-removebg-preview.png'%}" alt="Mock Awards">
+      </div>
+      <div class="hero-image">
+        <img src="{% static 'images/close-up-medical-team-ready-work.jpg' %}" alt="Hero Image">
+        <button class="hotspot-btn" id="seth-btn" style="top: 50%; left: 16%;"></button>
+        <button class="hotspot-btn" id="scrubs-btn" style="top: 70%; left: 50%;"></button>
+        <button class="hotspot-btn" id="coat-btn" style="top: 60%; left: 75%;"></button>
+
+        <div class="hotspot-info" style="top: 40%; left: 16%;" id="stethoscope">
+          <p>Stethoscope</p>
+          <button class="shop-btn">Shop Now</button>
+        </div>
+        <div class="hotspot-info" style="top: 60%; left: 50%;" id="scrubs">
+          <p>Scrub Suit</p>
+          <button class="shop-btn">Shop Now</button>
+        </div>
+        <div class="hotspot-info" style="top: 50%; left:75%;" id="coat">
+          <p>Lab Coat</p>
+          <button class="shop-btn">Shop Now</button>
+        </div>
+      </div>
+    </header>
+
+<!-- Social Proof Section -->
+    <section class="social-proof">
+      <div class="social-proof-header">
+        <p class="stat">Over 100,000</p>
+        <p class="stat">Happy Customers Since 2025</p>
       </div>
 
-      <div class="service-card">
-        <h3>Limited Edition or Trendy Collections</h3>
-        <p>
-          Stylish options while maintaining professional standards.
-        </p>
+      <div class="social-proof-content">
+        <div class="image-wrapper">
+          <img
+            src="{% static 'images/medical-center-3316776_1920.jpg' %}"
+            alt="Healthcare professionals"
+            class="responsive-image"
+          />
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>
+              “FitKit scrubs are incredibly comfortable even during long shifts.
+              The quality really stands out.”
+            </p>
+            <span>— Registered Nurse</span>
+          </div>
+
+          <div class="testimonial">
+            <p>
+              “Stylish yet professional. Our team loves the fit and durability.”
+            </p>
+            <span>— Hospital Administrator</span>
+          </div>
+
+          <div class="testimonial">
+            <p>
+              “Perfect balance of function and design. Highly recommended.”
+            </p>
+            <span>— Medical Intern</span>
+          </div>
+        </div>
       </div>
-
-      <div class="service-card">
-        <h3>Custom Branding</h3>
-        <p>
-          Personalizing uniforms with hospital logos or staff names.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-    <section>
-    <div class="section-title">
-        <h2>Contact Us</h2>
-        <p>We'll help you find the perfect hospital apparel and accessories.</p>
-    </div>
-
-    <form class="contact-form" action="{% url 'landing_page' %}" method="POST">
-        {% csrf_token %}
-        <label for="name">Name<span class="asterisk">*</span></label>
-        <input type="text" id="name" name="name" placeholder="Your name" required />
-
-        <label for="email">Email<span class="asterisk">*</span></label>
-        <input type="email" id="email" name="email" placeholder="Your email" required />
-
-        <label for="message">Message<span class="asterisk">*</span></label>
-        <textarea id="message" name="message" placeholder="Your message" required></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
     </section>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 Made by Ignatius Warren Benjamin Javelona.
-  </footer>
+    <section class="shop-section" id="shop">
+      <div class="shop-title">
+        <h1>Bestsellers</h1>
+        <button id="shop-btn">Show All</button>
+      </div>
+      <div class="shop-carousel">
+        <button class="arrow left">&#10094;</button>
 
-</body>
+        <div class="shop-wrapper">
+          <div class="shop-items">
+            <div class="shop-card">
+              <img src="{% static 'images/StethoscopeEICKEMEYERWithLongTubes_4802901_310046.jpg' %}" alt="Stethoscope">
+              <h1 class="shop-sold-out">sold out</h1>
+            </div>
+            <div class="shop-card">
+              <img src="{% static 'images/sc-1-2.jpg' %}" alt="Scrubs">
+              <h1 class="shop-sold-out">sold out</h1>
+            </div>
+            <div class="shop-card">
+              <img src="{% static 'images/1512578852-l.jpg' %}" alt="Lab Coat">
+              <h1 class="shop-sold-out">sold out</h1>
+            </div>
+            <div class="shop-card">
+              <img src="{% static 'images/61cUteYrMDL._UX569_.jpg' %}" alt="Mask">
+              <h1 class="shop-sold-out">sold out</h1>
+            </div>
+            <div class="shop-card">
+              <img src="{% static 'images/71PFn1m6uIL.jpg' %}" alt="Gloves">
+              <h1 class="shop-sold-out">sold out</h1>
+            </div>
+            <div class="shop-card">
+              <img src="{% static 'images/31qZcZcdI5L.jpg' %}" alt="Shoes">
+              <h1 class="shop-sold-out">sold out</h1>
+            </div>
+          </div>
+        </div>
+
+        <button class="arrow right">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="section-title">
+        <h1>Our Services</h1>
+        <p>Modern essentials made for healthcare professionals on the front lines</p>
+      </div>
+
+      <div class="service-card">
+        <img src="{% static 'images/psychologist-9988009_1920.jpg' %}" alt="Hospital Apparel">
+        <div class="service-text">
+          <h3>Hospital Apparel Sales</h3>
+          <p>High-quality scrubs, lab coats, and medical uniforms.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="{% static 'images/nurses-working-during-the-holidays-1200x722.png' %}" alt="Trendy Collections">
+        <div class="service-text">
+          <h3>Limited Edition Collections</h3>
+          <p>Stylish options while maintaining professional standards.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="{% static 'images/doctor-2568481_1920.jpg' %}" alt="Custom Branding">
+        <div class="service-text">
+          <h3>Custom Branding</h3>
+          <p>Personalize uniforms with hospital logos or staff names.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-title">
+          <h2>Contact Us</h2>
+          <p>We'll help you find the perfect hospital apparel and accessories.</p>
+      </div>
+
+      <form class="contact-form" action="{% url 'landing_page' %}" method="POST">
+          {% csrf_token %}
+          <label for="name">Name<span class="asterisk">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+
+          <label for="email">Email<span class="asterisk">*</span></label>
+          <input type="email" id="email" name="email" placeholder="Your email" required />
+
+          <label for="message">Message<span class="asterisk">*</span></label>
+          <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+          <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © 2025 Made by Ignatius Warren Benjamin Javelona.
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
 </html>

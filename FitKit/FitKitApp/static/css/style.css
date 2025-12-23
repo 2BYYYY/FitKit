@@ -11,42 +11,331 @@ body {
     background-color: #f9f9f9;
 }
 
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: #16315d;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo a {
+    font-size: 22px;
+    font-weight: 700;     
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.hero-split {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  flex-wrap: nowrap; 
+}
+
+.hero-text {
+  flex: 0 0 30%;
+  padding: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.hero-text img{
+    height: auto;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#hero-text-title{
+    color: #1e3c72;
+}
+
+.hero-image {
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* add this to allow absolute buttons */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 75%;
+  border-radius: 8px;
+  border: 10px solid #1e3c72;
+  object-fit: cover;
+}
+
+/* Hotspot button styles */
+.hotspot-btn {
+  position: absolute;
+  width: 25px;             /* circle size */
+  height: 25px;
+  border-radius: 50%;      /* makes it a perfect circle */
+  background-color: #1e3c72;  /* blue color */
+  border: 2px solid white;     /* white border */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25); /* subtle shadow */
+  cursor: pointer;
+  transform: translate(-50%, -50%); /* center on coordinates */
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.hotspot-btn:hover {
+  background-color: #16315d; /* slightly darker on hover */
+  transform: translate(-50%, -50%) scale(2); /* slight zoom on hover */
+}
+
+.hotspot-info {
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.shop-btn{
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #1e3c72;
+    border: 0;
+    border-radius: 5px;
+}
+
+.hotspot-info.showInfo {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Media query to stack when screen is too narrow */
+@media (max-width: 1200px) {
+  .hero-split {
+    flex-direction: column;
+  }
+  .hero-text, .hero-image {
+    flex: 1 1 100%;
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+  }
+  .hero-image img {
+    width: 100%;    
+    height: auto; 
+  }
+}
+
+.shop-section {
+  width: 100%;
+  text-align: center;
+  color: #333;
+}
+
+.shop-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-carousel {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.shop-wrapper {
+    overflow: hidden;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.shop-items {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.shop-card {
+    position: relative;
+    min-width: 30%;
+    margin: 0 10px;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px solid #16315d;
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+}
+
+#shop-btn{
+    background-color: #16315d;
+    border-radius: 10px;
+    padding: 0px 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.shop-sold-out{
+    color: white;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 70%;
+    padding: 50px;
+}
+
+.shop-card img {
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.arrow {
+    color:#16315d;
+    font-size: 50px;
+    cursor: pointer;
+    border: 0;
+    background: rgba(255, 255, 255, 0);
+}
+
+.social-proof {
+    padding: 24px 24px;
+    background:#1e3c72;
+}
+
+.social-proof-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.social-proof-header h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.social-proof-header .stat {
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+.social-proof-content {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 48px;
+    align-items: center;
+}
+
+.image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+    border-radius: 8px;
+    overflow: hidden;
+    border: 10px solid #16315d;
+}
+
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Testimonials */
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.testimonial {
+    background: #ffffff;
+    padding: 24px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.testimonial p {
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.testimonial span {
+    font-size: 14px;
+    color: #777;
+}
+
 header {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #fff;
-    padding: 80px 20px;
+    background: white;
+    color: #666;
+    padding: 10px 20px;
     text-align: center;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 50px;
     margin-bottom: 15px;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 20px;
     max-width: 600px;
     margin: 0 auto;
 }
 
 section {
-    padding: 60px 20px;
-    max-width: 1100px;
-    margin: auto;
+    padding: 30px 150px;
+    width: 100%;
 }
 
 .section-title {
-    text-align: center;
+    text-align: left;
     margin-bottom: 40px;
+    color: #333;
 }
 
 .section-title h2 {
-    font-size: 2.2rem;
+    font-size: 50px;
     margin-bottom: 10px;
-}
-
-.section-title p {
-    color: #666;
 }
 
 .services {
@@ -56,21 +345,62 @@ section {
 }
 
 .service-card {
-    background: #fff;
-    padding: 30px;
+    position: relative; 
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;   
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 30px;
+}
+
+.service-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; 
+    display: block;
+}
+
+
+.service-text {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 12px;
+    border-radius: 6px;
+    max-width: 90%;
+}
+
+.service-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+}
+
+.service-text p {
+    margin: 0;
+    font-size: 15px;
+}
+
+/* Hover effect */
+.service-card:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+#contact{
+    background: #1e3c72;
+}
+
+.contact-title {
     text-align: center;
+    margin-bottom: 40px;
+    color: #fffefe;
 }
 
-.service-card h3 {
-    margin-bottom: 15px;
-    color: #1e3c72;
-}
-
-.service-card p {
-    font-size: 0.95rem;
-    color: #555;
+.contact-title h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .contact-form {
@@ -95,7 +425,7 @@ section {
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 15px;
 }
 
 .contact-form textarea {
@@ -110,12 +440,12 @@ section {
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size:15px;
     cursor: pointer;
 }
 
 .contact-form button:hover {
-    background: #16315d;
+    background: #162b52;
 }
 
 footer {
@@ -123,7 +453,7 @@ footer {
     color: #ccc;
     text-align: center;
     padding: 20px;
-    font-size: 0.9rem;
+    font-size: 15px;
 }
 
 .asterisk{
