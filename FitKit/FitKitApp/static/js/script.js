@@ -49,6 +49,6 @@ rightArrow.addEventListener("click", () => {
 });
 
 function updateCarousel() {
-  const cardWidth = document.querySelector(".shop-card").offsetWidth + 20; // includes margin
+  const cardWidth = document.querySelector(".shop-card").offsetWidth + 20;
   itemsContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
 }
